@@ -107,7 +107,7 @@ const CloveoHero = () => {
                 <button className="text-gray-700 hover:text-black transition">
                   <User size={22} strokeWidth={1.5} />
                 </button>
-                <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-md text-[15px]">
+                <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-md text-[15px] cursor-pointer">
                   Contact Us
                 </button>
               </div>
@@ -193,8 +193,8 @@ const CloveoHero = () => {
                   Join thousands of people earning by designing memes, posting on Reddit, or moderating tasks — all from one simple dashboard.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 w-full">
-                  <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-8 py-3.5 md:px-9 md:py-4 rounded-full font-bold text-sm md:text-[15px] transition shadow-lg text-center w-full sm:w-auto min-w-[180px]">Start Earning Now</button>
-                  <button className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-3.5 md:px-9 md:py-4 rounded-full font-bold text-sm md:text-[15px] transition shadow-lg text-center w-full sm:w-auto min-w-[180px]">Learn How It Works</button>
+                  <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-8 py-3.5 md:px-9 md:py-4 rounded-full font-bold text-sm md:text-[15px] transition shadow-lg text-center w-full sm:w-auto min-w-[180px] cursor-pointer">Start Earning Now</button>
+                  <button className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-3.5 md:px-9 md:py-4 rounded-full font-bold text-sm md:text-[15px] transition shadow-lg text-center w-full sm:w-auto min-w-[180px] cursor-pointer">Learn How It Works</button>
                 </div>
               </div>
             </div>

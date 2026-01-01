@@ -86,7 +86,7 @@ const HowItWorks = () => {
         </div>
 
         {/* --- STEPS GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-24 gap-x-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-24 gap-x-8 ">
           
           {steps.map((step) => (
             <div key={step.id} className="relative flex flex-col group">
@@ -111,7 +111,7 @@ const HowItWorks = () => {
               <div 
                 className={`
                   relative w-full h-full min-h-[280px] rounded-[35px] p-3
-                  border-2 border-[#4B9CFF]
+                  border-2 cursor-pointer border-[#4B9CFF]
                   ${step.borderStyle === 'dashed' ? 'border-dashed' : 'border-solid'}
                   transition-all duration-300 hover:shadow-lg hover:-translate-y-1
                 `}

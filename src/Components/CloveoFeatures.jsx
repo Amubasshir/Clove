@@ -79,7 +79,7 @@ const CloveoFeatures = () => {
               real income – no gimmicks, no hassle.
             </p>
 
-            <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-base md:text-lg transition-all shadow-lg shadow-blue-200 hover:shadow-blue-300 transform hover:-translate-y-1">
+            <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-base md:text-lg transition-all shadow-lg shadow-blue-200 hover:shadow-blue-300 transform hover:-translate-y-1 cursor-pointer">
               Get Started
             </button>
           </div>

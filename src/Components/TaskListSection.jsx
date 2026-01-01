@@ -25,7 +25,7 @@ const TaskListSection = () => {
               Complete simple online tasks, follow clear instructions, 
               and get paid instantly — it's that easy with Cloveo.
             </p>
-            <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-10 py-3 rounded-full font-semibold transition-all shadow-md hover:shadow-lg">
+            <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-10 py-3 rounded-full font-semibold transition-all shadow-md hover:shadow-lg cursor-pointer">
               Explore Task
             </button>
           </div>
@@ -41,19 +41,19 @@ const TaskListSection = () => {
           <div className="flex justify-between px-10 mb-[-20px] relative z-10 max-w-5xl mx-auto">
             {/* Task Tab */}
             <div className="w-[30%]">
-              <div className="bg-[#4B9CFF] text-white font-bold tracking-widest uppercase text-sm py-2 px-6 rounded-t-2xl inline-block shadow-sm">
+              <div className="bg-[#4B9CFF] text-white font-bold tracking-widest uppercase text-sm py-2 px-6 rounded-t-2xl inline-block shadow-sm cursor-pointer">
                 T a s k
               </div>
             </div>
             {/* Description Tab */}
             <div className="w-[50%] pl-4 hidden md:block">
-              <div className="bg-[#4B9CFF] text-white font-bold tracking-widest uppercase text-sm py-2 px-6 rounded-t-2xl inline-block shadow-sm">
+              <div className="bg-[#4B9CFF] text-white font-bold tracking-widest uppercase text-sm py-2 px-6 rounded-t-2xl inline-block shadow-sm cursor-pointer">
                 D e s c r i p t i o n
               </div>
             </div>
             {/* Payment Tab */}
             <div className="w-[20%] text-right hidden md:block">
-              <div className="bg-[#4B9CFF] text-white font-bold tracking-widest uppercase text-sm py-2 px-6 rounded-t-2xl inline-block shadow-sm mr-8">
+              <div className="bg-[#4B9CFF] text-white font-bold tracking-widest uppercase text-sm py-2 px-6 rounded-t-2xl inline-block shadow-sm mr-8 cursor-pointer">
                 P a y m e n t
               </div>
             </div>
@@ -68,24 +68,24 @@ const TaskListSection = () => {
             <div className="flex flex-col gap-5">
               
               {/* --- ROW 1: Design A Meme (White) --- */}
-              <div className="flex flex-col md:flex-row items-center border border-gray-200 rounded-[30px] p-6 bg-white hover:border-blue-200 transition-colors">
+              <div className="flex flex-col md:flex-row items-center border border-gray-200 rounded-[30px] p-6 bg-white hover:border-blue-200 transition-colors cursor-pointer">
                 {/* Col 1 */}
-                <div className="w-full md:w-[30%] mb-2 md:mb-0">
+                <div className="w-full md:w-[30%] mb-2 md:mb-0 ">
                   <span className="text-xl font-bold text-black">Design A Meme</span>
                 </div>
                 {/* Col 2 */}
-                <div className="w-full md:w-[50%] mb-2 md:mb-0">
+                <div className="w-full md:w-[50%] mb-2 md:mb-0 ">
                   <span className="text-gray-500 font-normal">Create a funny meme for r/funny</span>
                 </div>
                 {/* Col 3 */}
-                <div className="w-full md:w-[20%] text-left md:text-right md:pr-8">
+                <div className="w-full md:w-[20%] text-left md:text-right md:pr-8 ">
                   <span className="text-2xl font-extrabold text-black">$20</span>
                   <span className="text-gray-500 text-sm ml-1">per post</span>
                 </div>
               </div>
 
               {/* --- ROW 2: Post To Reddit (BLUE HIGHLIGHT) --- */}
-              <div className="flex flex-col md:flex-row items-center bg-[#4B9CFF] text-white rounded-[30px] p-8 shadow-xl shadow-blue-200 transform md:scale-[1.02] relative z-20 border-none">
+              <div className="flex flex-col md:flex-row items-center bg-[#4B9CFF] text-white rounded-[30px] p-8 shadow-xl shadow-blue-200 transform md:scale-[1.02] relative z-20 border-none cursor-pointer">
                 {/* Col 1 */}
                 <div className="w-full md:w-[30%] mb-2 md:mb-0">
                   <span className="text-xl font-bold">Post To Reddit</span>
@@ -101,7 +101,7 @@ const TaskListSection = () => {
               </div>
 
               {/* --- ROW 3: Moderation (White) --- */}
-              <div className="flex flex-col md:flex-row items-center border border-gray-200 rounded-[30px] p-6 bg-white hover:border-blue-200 transition-colors">
+              <div className="flex flex-col md:flex-row items-center border border-gray-200 rounded-[30px] p-6 bg-white hover:border-blue-200 transition-colors cursor-pointer">
                 {/* Col 1 */}
                 <div className="w-full md:w-[30%] mb-2 md:mb-0">
                   <span className="text-xl font-bold text-black">Moderation</span>

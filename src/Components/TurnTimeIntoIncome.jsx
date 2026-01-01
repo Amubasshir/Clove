@@ -93,7 +93,7 @@ const TurnTimeIntoIncome = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3, delay: 0.4 }}
-              className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-base md:text-lg shadow-lg shadow-blue-200 w-full sm:w-auto"
+              className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-base md:text-lg shadow-lg shadow-blue-200 w-full sm:w-auto cursor-pointer"
             >
               Start Task
             </motion.button>

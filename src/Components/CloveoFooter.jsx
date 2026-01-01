@@ -25,7 +25,7 @@ const CloveoFooter = () => {
             <p className="text-blue-50 text-base md:text-[17px] mb-8 font-light">
               Join Cloveo today and complete your first task in minutes.
             </p>
-            <button className="bg-white text-gray-900 px-9 py-4 rounded-full font-bold text-base shadow-lg hover:bg-gray-50 transition-all hover:scale-105 active:scale-95">
+            <button className="bg-white text-gray-900 px-9 py-4 rounded-full font-bold text-base shadow-lg hover:bg-gray-50 transition-all hover:scale-105 active:scale-95 cursor-pointer">
               Create Account
             </button>
           </div>
@@ -117,7 +117,7 @@ const CloveoFooter = () => {
                 placeholder="Email Address..." 
                 className="w-full bg-[#f4f7fa] text-gray-800 pl-6 pr-32 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 border-none placeholder-gray-400 text-sm"
               />
-              <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#4B9CFF] hover:bg-blue-600 text-white px-8 rounded-full font-semibold text-[15px] transition-all shadow-md">
+              <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#4B9CFF] hover:bg-blue-600 text-white px-8 rounded-full font-semibold text-[15px] transition-all shadow-md cursor-pointer">
                 Subscribe
               </button>
             </form>
