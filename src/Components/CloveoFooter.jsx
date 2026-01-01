@@ -48,7 +48,7 @@ const CloveoFooter = () => {
              />
              
              {/* Decorative Glow */}
-             <div className="absolute bottom-0 right-0 w-full h-[60%] bg-gradient-to-t from-black/20 to-transparent z-10 rounded-br-[40px]"></div>
+             <div className="absolute bottom-0 right-0 w-full h-[60%] bg-gradient-to-t from-black/20 blur-xl to-transparent z-10 rounded-br-[40px]"></div>
           </div>
         </div>
       </div>
