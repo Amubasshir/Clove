@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { User, ChevronDown, PenTool, MessageSquare, Menu, X, ArrowRight, Zap, Shield, Activity, TrendingUp, Sun, Moon } from 'lucide-react';
+import { User, ChevronDown, PenTool, MessageSquare, Menu, X, ArrowRight, Shield, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Default Data Configuration ---
@@ -33,7 +33,7 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
-  // --- Animations ---
+  // --- Animations (Entrance only) ---
   const menuContainerVariants = {
     hidden: { opacity: 0, height: 0, transition: { duration: 0.3, ease: "easeInOut", when: "afterChildren" } },
     visible: { opacity: 1, height: "auto", transition: { duration: 0.4, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.1 } },
@@ -49,20 +49,6 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
   const fadeInUp = {
     hidden: { y: 40, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-  };
-
-  // --- Smooth Background Animation ---
-  const smoothBlueGlow = {
-    animate: {
-      y: [0, -50, 0],
-      scale: [0.9, 1.2, 0.9],
-      opacity: [0.2, 0.6, 0.2],
-      transition: {
-        duration: 10,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
   };
 
   return (
@@ -88,18 +74,9 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
           }
           
-          .glow-mesh { background: radial-gradient(circle at center, rgba(75, 156, 255, 0.3) 0%, transparent 70%); }
-          
-          /* Hide Scrollbar but keep functionality */
-          .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgba(156, 163, 175, 0.5);
-            border-radius: 20px;
+          /* Static Glow Mesh */
+          .glow-mesh { 
+            background: radial-gradient(circle at center, rgba(75, 156, 255, 0.4) 0%, transparent 60%); 
           }
         `}
       </style>
@@ -108,8 +85,8 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
       <div className={`min-h-screen w-full flex items-center justify-center p-2 sm:p-4 md:p-6 font-outfit transition-colors duration-500 ${isDarkMode ? 'bg-[#050505]' : 'bg-gray-50'}`}>
         
         {/* Hero Card Container */}
-        {/* 'relative' parent is crucial for 'absolute' navbar to work correctly */}
-        <div className={`relative w-full max-w-[1600px] min-h-screen lg:min-h-[850px] lg:h-[90vh] rounded-[24px] md:rounded-[50px] shadow-2xl flex flex-col overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-[#0F1115]' : 'bg-white'}`}>
+        {/* Removed overflow-hidden here to allow dropdowns if needed, but added it back to keep card shape */}
+        <div className={`relative w-full max-w-[1600px] h-[90vh] min-h-[700px] rounded-[24px] md:rounded-[50px] shadow-2xl flex flex-col overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-[#0F1115]' : 'bg-white'}`}>
           
           {/* --- Dynamic Background --- */}
           <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
@@ -125,12 +102,12 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
              <div className={`absolute inset-0 bg-gradient-to-r transition-colors duration-500 
                ${isDarkMode ? 'from-[#0F1115] via-[#0F1115]/80' : 'from-white via-white/50'} to-transparent`} 
              />
-             <div className={`absolute top-0 right-0 w-[500px] md:w-[800px] h-[500px] md:h-[800px] bg-[#4B9CFF] rounded-full mix-blend-screen filter blur-[100px] md:blur-[150px] animate-pulse transition-opacity duration-500 ${isDarkMode ? 'opacity-10' : 'opacity-20'}`} />
-             <div className={`absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-indigo-900 rounded-full mix-blend-screen filter blur-[80px] md:blur-[120px] transition-opacity duration-500 ${isDarkMode ? 'opacity-20' : 'opacity-5'}`} />
+             {/* Static Background Blobs (No Animation) */}
+             <div className={`absolute top-0 right-0 w-[800px] h-[800px] bg-[#4B9CFF] rounded-full mix-blend-screen filter blur-[150px] transition-opacity duration-500 ${isDarkMode ? 'opacity-10' : 'opacity-20'}`} />
+             <div className={`absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-900 rounded-full mix-blend-screen filter blur-[120px] transition-opacity duration-500 ${isDarkMode ? 'opacity-20' : 'opacity-5'}`} />
           </div>
 
           {/* --- NAVBAR (FIXED TOP) --- */}
-          {/* 'absolute top-0' fixes it to the top of the card. z-50 keeps it above scrollable content */}
           <div className="absolute top-0 left-0 right-0 z-50 pt-4 md:pt-6 px-3 md:px-4 flex justify-center pointer-events-none">
             <nav className={`glass-nav pointer-events-auto ${isDarkMode ? 'dark' : 'light'} rounded-full px-4 md:px-6 py-2.5 md:py-3 w-full max-w-[1200px] flex justify-between items-center transition-colors duration-500`}>
               
@@ -241,11 +218,11 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
              </AnimatePresence>
           </div>
 
-          {/* --- MAIN HERO CONTENT (SCROLLABLE) --- */}
-          {/* overflow-y-auto enables scrolling, pt-32 prevents content from hiding behind navbar */}
-          <div className="relative z-10 w-full h-full overflow-y-auto overflow-x-hidden pt-32 pb-10 custom-scrollbar">
-             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
-                <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12 items-center min-h-[600px]">
+          {/* --- MAIN HERO CONTENT (FIXED - NO SCROLL) --- */}
+          {/* Changed: Removed overflow-y-auto, added flex items-center justify-center to center content */}
+          <div className="relative z-10 w-full h-full flex flex-col justify-center pt-24 pb-10">
+             <div className="max-w-[1500px] w-full mx-auto px-4 sm:px-6 lg:px-12">
+                <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
                   
                   {/* Left Side: Text Content */}
                   <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15 } } }} className="lg:col-span-7 flex flex-col items-start w-full">
@@ -253,7 +230,7 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
                     <motion.div variants={fadeInUp} className="relative group cursor-pointer mb-6 sm:mb-8 self-start">
                        <div className="absolute inset-0 bg-[#4B9CFF] blur-md opacity-25 group-hover:opacity-40 transition-opacity rounded-full"></div>
                        <div className={`relative flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border backdrop-blur-md transition-colors ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white/60 border-gray-200'}`}>
-                          <span className="flex h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#4B9CFF] shadow-[0_0_10px_#4B9CFF] animate-pulse"></span>
+                          <span className="flex h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#4B9CFF] shadow-[0_0_10px_#4B9CFF]"></span>
                           <span className={`text-xs sm:text-sm font-medium tracking-wide transition-colors ${isDarkMode ? 'text-gray-200' : 'text-gray-700'}`}>{data.hero.badge}</span>
                           <ArrowRight size={14} className="text-[#4B9CFF] group-hover:translate-x-1 transition-transform" />
                        </div>
@@ -290,9 +267,10 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
                     </motion.div>
                   </motion.div>
 
-                  {/* Right Side: Visuals (Smooth Animation) */}
-                  <div className="lg:col-span-5 relative h-[450px] sm:h-[500px] lg:h-[700px] w-full flex items-center justify-center perspective-[2000px] mt-8 lg:mt-0 pointer-events-none">
-                     <motion.div variants={smoothBlueGlow} animate="animate" className="absolute inset-0 glow-mesh" />
+                  {/* Right Side: Visuals (STATIC GLOW - NO ANIMATION) */}
+                  <div className="hidden lg:flex lg:col-span-5 relative h-full w-full items-center justify-center pointer-events-none">
+                     {/* Changed: Replaced motion.div with a static div */}
+                     <div className="absolute inset-0 glow-mesh w-full h-full" />
                   </div>
                 </div>
              </div>
