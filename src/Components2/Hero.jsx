@@ -86,7 +86,7 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
         
         {/* Hero Card Container */}
         {/* Removed overflow-hidden here to allow dropdowns if needed, but added it back to keep card shape */}
-        <div className={`relative w-full max-w-[1600px] h-[90vh] min-h-[700px] rounded-[24px] md:rounded-[50px] shadow-2xl flex flex-col overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-[#0F1115]' : 'bg-white'}`}>
+        <div className={`relative w-full max-w-[1500px] h-[90vh] min-h-[800px] rounded-[24px] md:rounded-[50px] shadow-2xl flex flex-col overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-[#0F1115]' : 'bg-white'}`}>
           
           {/* --- Dynamic Background --- */}
           <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
