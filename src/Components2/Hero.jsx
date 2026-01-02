@@ -33,7 +33,7 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
-  // --- Animations (Entrance only) ---
+  // --- Animations ---
   const menuContainerVariants = {
     hidden: { opacity: 0, height: 0, transition: { duration: 0.3, ease: "easeInOut", when: "afterChildren" } },
     visible: { opacity: 1, height: "auto", transition: { duration: 0.4, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.1 } },
@@ -74,25 +74,25 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
           }
           
-          /* Static Glow Mesh */
+          /* Static Glow Mesh - INCREASED SIZE HERE */
           .glow-mesh { 
-            background: radial-gradient(circle at center, rgba(75, 156, 255, 0.4) 0%, transparent 60%); 
+            background: radial-gradient(circle at center, rgba(75, 156, 255, 0.5) 0%, transparent 75%); 
           }
         `}
       </style>
 
       {/* Outer Wrapper */}
-      <div className={`min-h-screen w-full flex items-center justify-center p-2 sm:p-4 md:p-6 font-outfit transition-colors duration-500 ${isDarkMode ? 'bg-[#050505]' : 'bg-gray-50'}`}>
+      <div className={`min-h-screen w-full flex items-center justify-center p-2 sm:p-4 font-outfit transition-colors duration-500 ${isDarkMode ? 'bg-[#050505]' : 'bg-gray-50'}`}>
         
         {/* Hero Card Container */}
-        {/* Removed overflow-hidden here to allow dropdowns if needed, but added it back to keep card shape */}
-        <div className={`relative w-full max-w-[1500px] h-[90vh] min-h-[800px] rounded-[24px] md:rounded-[50px] shadow-2xl flex flex-col overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-[#0F1115]' : 'bg-white'}`}>
+        <div className={`relative w-full max-w-[1600px] h-[90vh] min-h-[800px] rounded-[24px] md:rounded-[50px] shadow-2xl flex flex-col overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-[#0F1115]' : 'bg-white'}`}>
           
           {/* --- Dynamic Background --- */}
           <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+             
              <div 
                 className={`absolute inset-0  transition-all duration-500 
-                ${isDarkMode ? 'opacity-70 mix-blend-overlay' : 'opacity-70 mix-blend-multiply'}`}
+                ${isDarkMode ? 'opacity-90 mix-blend-overlay' : 'opacity-80 mix-blend-multiply'}`}
                 style={{
                   backgroundImage: `url('${data.hero.bgImage}')`,
                   backgroundSize: 'cover',
@@ -100,126 +100,126 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
                 }}
              />
              <div className={`absolute inset-0 bg-gradient-to-r transition-colors duration-500 
-               ${isDarkMode ? 'from-[#0F1115] via-[#0F1115]/50' : 'from-white via-white/20'} to-transparent`} 
+               ${isDarkMode ? 'from-[#0F1115] via-[#0F1115]/30' : 'from-white via-white/20'} to-transparent`} 
              />
-             {/* Static Background Blobs (No Animation) */}
+             
+             {/* Static Background Blobs */}
              <div className={`absolute top-0 right-0 w-[800px] h-[800px] bg-[#4B9CFF] rounded-full mix-blend-screen filter blur-[150px] transition-opacity duration-500 ${isDarkMode ? 'opacity-10' : 'opacity-20'}`} />
              <div className={`absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-900 rounded-full mix-blend-screen filter blur-[120px] transition-opacity duration-500 ${isDarkMode ? 'opacity-20' : 'opacity-5'}`} />
           </div>
 
-          {/* --- NAVBAR (FIXED TOP) --- */}
-          <div className="absolute top-0 left-0 right-0 z-50 pt-4 md:pt-6 px-3 md:px-4 flex justify-center pointer-events-none">
-            <nav className={`glass-nav pointer-events-auto ${isDarkMode ? 'dark' : 'light'} rounded-full px-4 md:px-6 py-2.5 md:py-3 w-full max-w-[1200px] flex justify-between items-center transition-colors duration-500`}>
-              
-               <div className="flex items-center">
-                <div className="relative cursor-pointer">
-                  <span className={`text-2xl md:text-[28px] font-extrabold tracking-tight leading-none transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                    Cloveo
-                  </span>
-                  <div className="absolute top-[51%] left-[65%] w-2.5 h-[2.5px] md:w-3 md:h-[3px] bg-blue-500 rounded-full"></div>
-                </div>
-              </div>
-
-              {/* Menu Items */}
-              <div className="hidden lg:flex items-center gap-8 text-[15px] font-semibold">
-                {data.navLinks.slice(0, 2).map((link, idx) => (
-                    <a key={idx} href={link.href} className={`transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-black'} hover:underline decoration-2 underline-offset-4`}>
-                      {link.label}
-                    </a>
-                ))}
-                
-                {/* Categories Dropdown */}
-                <div className="relative group h-full flex items-center">
-                  <button className={`flex items-center gap-1 transition-colors duration-300 py-2 ${isDarkMode ? 'text-gray-300 group-hover:text-white' : 'text-gray-600 group-hover:text-black'}`}>
-                    Categories <ChevronDown size={14} className="mt-[1px] group-hover:rotate-180 transition-transform" />
-                  </button>
-                  <div className="absolute top-[100%] left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <div className={`rounded-2xl shadow-xl border p-2 w-64 backdrop-blur-xl transition-colors duration-300 ${isDarkMode ? 'bg-[#1A1D25]/95 border-white/10' : 'bg-white border-gray-100'}`}>
-                      {data.categories.map((cat, idx) => (
-                          <DropdownItem key={idx} icon={cat.icon} title={cat.title} subtitle={cat.subtitle} color={cat.color} isDarkMode={isDarkMode} />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {data.navLinks.slice(2).map((link, idx) => (
-                    <a key={idx} href={link.href} className={`transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-black'} hover:underline decoration-2 underline-offset-4`}>
-                      {link.label}
-                    </a>
-                ))}
-              </div>
-
-              <div className="hidden lg:flex items-center gap-4">
-                <button onClick={toggleTheme} className={`p-2 rounded-full transition-colors cursor-pointer relative flex items-center justify-center ${isDarkMode ? 'text-gray-300 hover:bg-white/10 hover:text-white' : 'text-gray-600 hover:bg-gray-100 hover:text-black'}`}>
-                    <AnimatePresence mode="wait" initial={false}>
-                        <motion.div
-                            key={isDarkMode ? "dark" : "light"}
-                            initial={{ scale: 0.5, opacity: 0, rotate: -180 }}
-                            animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                            exit={{ scale: 0.5, opacity: 0, rotate: 180 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
-                        >
+          {/* --- NAVBAR --- */}
+         <div className="fixed top-3 left-0 right-0 z-50 pt-4 md:pt-6 px-3 md:px-4 flex justify-center pointer-events-none">
+                    <nav className={`glass-nav pointer-events-auto ${isDarkMode ? 'dark' : 'light'} rounded-full px-4 md:px-6 py-2.5 md:py-3 w-full max-w-[1200px] flex justify-between items-center transition-colors duration-500`}>
+                      
+                       <div className="flex items-center">
+                        <div className="relative cursor-pointer">
+                          <span className={`text-2xl md:text-[28px] font-extrabold tracking-tight leading-none transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                            Cloveo
+                          </span>
+                          <div className="absolute top-[51%] left-[65%] w-2.5 h-[2.5px] md:w-3 md:h-[3px] bg-blue-500 rounded-full"></div>
+                        </div>
+                      </div>
+        
+                      {/* Menu Items */}
+                      <div className="hidden lg:flex items-center gap-8 text-[15px] font-semibold">
+                        {data.navLinks.slice(0, 2).map((link, idx) => (
+                            <a key={idx} href={link.href} className={`transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-black'} hover:underline decoration-2 underline-offset-4`}>
+                              {link.label}
+                            </a>
+                        ))}
+                        
+                        {/* Categories Dropdown */}
+                        <div className="relative group h-full flex items-center">
+                          <button className={`flex items-center gap-1 transition-colors duration-300 py-2 ${isDarkMode ? 'text-gray-300 group-hover:text-white' : 'text-gray-600 group-hover:text-black'}`}>
+                            Categories <ChevronDown size={14} className="mt-[1px] group-hover:rotate-180 transition-transform" />
+                          </button>
+                          <div className="absolute top-[100%] left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div className={`rounded-2xl shadow-xl border p-2 w-64 backdrop-blur-xl transition-colors duration-300 ${isDarkMode ? 'bg-[#1A1D25]/95 border-white/10' : 'bg-white border-gray-100'}`}>
+                              {data.categories.map((cat, idx) => (
+                                  <DropdownItem key={idx} icon={cat.icon} title={cat.title} subtitle={cat.subtitle} color={cat.color} isDarkMode={isDarkMode} />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+        
+                        {data.navLinks.slice(2).map((link, idx) => (
+                            <a key={idx} href={link.href} className={`transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-black'} hover:underline decoration-2 underline-offset-4`}>
+                              {link.label}
+                            </a>
+                        ))}
+                      </div>
+        
+                      <div className="hidden lg:flex items-center gap-4">
+                        <button onClick={toggleTheme} className={`p-2 rounded-full transition-colors cursor-pointer relative flex items-center justify-center ${isDarkMode ? 'text-gray-300 hover:bg-white/10 hover:text-white' : 'text-gray-600 hover:bg-gray-100 hover:text-black'}`}>
+                            <AnimatePresence mode="wait" initial={false}>
+                                <motion.div
+                                    key={isDarkMode ? "dark" : "light"}
+                                    initial={{ scale: 0.5, opacity: 0, rotate: -180 }}
+                                    animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                                    exit={{ scale: 0.5, opacity: 0, rotate: 180 }}
+                                    transition={{ duration: 0.3, ease: "easeOut" }}
+                                >
+                                    {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                                </motion.div>
+                            </AnimatePresence>
+                        </button>
+                        <button className={`p-2 rounded-full transition-colors cursor-pointer ${isDarkMode ? 'text-gray-300 hover:bg-white/10 hover:text-white' : 'text-gray-600 hover:bg-gray-100 hover:text-black'}`}>
+                          <User size={20} />
+                        </button>
+                        <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-7 py-2.5 rounded-full font-bold shadow-md shadow-blue-200 transition-all text-sm transform active:scale-95 cursor-pointer">Contact Us</button>
+                      </div>
+        
+                      <div className="lg:hidden flex items-center gap-2">
+                         <button onClick={toggleTheme} className={`p-2 rounded-full transition-colors ${isDarkMode ? 'bg-white/10 text-white' : 'bg-white/50 text-gray-800'}`}>
                             {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-                        </motion.div>
-                    </AnimatePresence>
-                </button>
-                <button className={`p-2 rounded-full transition-colors cursor-pointer ${isDarkMode ? 'text-gray-300 hover:bg-white/10 hover:text-white' : 'text-gray-600 hover:bg-gray-100 hover:text-black'}`}>
-                  <User size={20} />
-                </button>
-                <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-7 py-2.5 rounded-full font-bold shadow-md shadow-blue-200 transition-all text-sm transform active:scale-95 cursor-pointer">Contact Us</button>
-              </div>
+                         </button>
+                        <button className={`p-2 rounded-full transition-colors ${isDarkMode ? 'bg-white/10 text-white' : 'bg-white/50 text-gray-800'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                        </button>
+                      </div>
+                    </nav>
+                </div>
+        
+                {/* --- MOBILE MENU --- */}
+                <div className="fixed top-[80px] left-3 right-3 z-50 lg:hidden flex flex-col items-center">
+                     <AnimatePresence>
+                        {isMobileMenuOpen && (
+                          <motion.div initial="hidden" animate="visible" exit="exit" variants={menuContainerVariants} className={`w-full max-w-[1200px] backdrop-blur-xl rounded-[24px] shadow-2xl border overflow-hidden ${isDarkMode ? 'bg-[#15171e]/95 border-white/10' : 'bg-white/95 border-white/20'}`}>
+                            <div className="p-5 space-y-4">
+                                {data.navLinks.slice(0, 1).map((link, idx) => (
+                                   <motion.a key={idx} variants={menuItemVariants} href={link.href} className={`block text-lg font-bold border-b pb-3 ${isDarkMode ? 'text-white border-white/10' : 'text-gray-800 border-gray-100'}`}>
+                                     {link.label}
+                                   </motion.a>
+                                ))}
+                                <motion.div variants={menuItemVariants} className={`border-b pb-3 ${isDarkMode ? 'border-white/10' : 'border-gray-100'}`}>
+                                   <button onClick={() => setIsCategoryOpen(!isCategoryOpen)} className={`flex items-center justify-between w-full text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
+                                      Categories <ChevronDown className={`transition-transform duration-300 ${isCategoryOpen ? 'rotate-180' : ''}`} size={18}/>
+                                   </button>
+                                   <AnimatePresence>
+                                     {isCategoryOpen && (
+                                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
+                                          <div className="pt-3 pl-4 space-y-3">
+                                             {data.categories.map((cat, idx) => (
+                                                 <div key={idx} className={`flex items-center gap-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{cat.icon} {cat.title}</div>
+                                             ))}
+                                          </div>
+                                       </motion.div>
+                                     )}
+                                   </AnimatePresence>
+                                </motion.div>
+                                {data.navLinks.slice(1).map((link, idx) => (
+                                   <motion.a key={idx} variants={menuItemVariants} href={link.href} className={`block text-lg font-bold border-b pb-3 ${isDarkMode ? 'text-white border-white/10' : 'text-gray-800 border-gray-100'}`}>
+                                     {link.label}
+                                   </motion.a>
+                                ))}
+                            </div>
+                          </motion.div>
+                        )}
+                     </AnimatePresence>
+                </div>
 
-              <div className="lg:hidden flex items-center gap-2">
-                 <button onClick={toggleTheme} className={`p-2 rounded-full transition-colors ${isDarkMode ? 'bg-white/10 text-white' : 'bg-white/50 text-gray-800'}`}>
-                    {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-                 </button>
-                <button className={`p-2 rounded-full transition-colors ${isDarkMode ? 'bg-white/10 text-white' : 'bg-white/50 text-gray-800'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                    {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-                </button>
-              </div>
-            </nav>
-          </div>
-
-          {/* --- MOBILE MENU --- */}
-          <div className="absolute top-[80px] left-3 right-3 z-40 lg:hidden flex flex-col items-center">
-             <AnimatePresence>
-                {isMobileMenuOpen && (
-                  <motion.div initial="hidden" animate="visible" exit="exit" variants={menuContainerVariants} className={`w-full max-w-[1200px] backdrop-blur-xl rounded-[24px] shadow-2xl border overflow-hidden ${isDarkMode ? 'bg-[#15171e]/95 border-white/10' : 'bg-white/95 border-white/20'}`}>
-                    <div className="p-5 space-y-4">
-                        {data.navLinks.slice(0, 1).map((link, idx) => (
-                           <motion.a key={idx} variants={menuItemVariants} href={link.href} className={`block text-lg font-bold border-b pb-3 ${isDarkMode ? 'text-white border-white/10' : 'text-gray-800 border-gray-100'}`}>
-                             {link.label}
-                           </motion.a>
-                        ))}
-                        <motion.div variants={menuItemVariants} className={`border-b pb-3 ${isDarkMode ? 'border-white/10' : 'border-gray-100'}`}>
-                           <button onClick={() => setIsCategoryOpen(!isCategoryOpen)} className={`flex items-center justify-between w-full text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
-                              Categories <ChevronDown className={`transition-transform duration-300 ${isCategoryOpen ? 'rotate-180' : ''}`} size={18}/>
-                           </button>
-                           <AnimatePresence>
-                             {isCategoryOpen && (
-                               <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
-                                  <div className="pt-3 pl-4 space-y-3">
-                                     {data.categories.map((cat, idx) => (
-                                         <div key={idx} className={`flex items-center gap-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{cat.icon} {cat.title}</div>
-                                     ))}
-                                  </div>
-                               </motion.div>
-                             )}
-                           </AnimatePresence>
-                        </motion.div>
-                        {data.navLinks.slice(1).map((link, idx) => (
-                           <motion.a key={idx} variants={menuItemVariants} href={link.href} className={`block text-lg font-bold border-b pb-3 ${isDarkMode ? 'text-white border-white/10' : 'text-gray-800 border-gray-100'}`}>
-                             {link.label}
-                           </motion.a>
-                        ))}
-                    </div>
-                  </motion.div>
-                )}
-             </AnimatePresence>
-          </div>
-
-          {/* --- MAIN HERO CONTENT (FIXED - NO SCROLL) --- */}
-          {/* Changed: Removed overflow-y-auto, added flex items-center justify-center to center content */}
+          {/* --- MAIN HERO CONTENT --- */}
           <div className="relative z-10 w-full h-full flex flex-col justify-center pt-24 pb-10">
              <div className="max-w-[1500px] w-full mx-auto px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -267,10 +267,13 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
                     </motion.div>
                   </motion.div>
 
-                  {/* Right Side: Visuals (STATIC GLOW - NO ANIMATION) */}
+                  {/* Right Side: Visuals */}
                   <div className="hidden lg:flex lg:col-span-5 relative h-full w-full items-center justify-center pointer-events-none">
-                     {/* Changed: Replaced motion.div with a static div */}
-                     <div className="absolute inset-0 glow-mesh w-full h-full" />
+                     {/* 
+                        UPDATED: Bigger Blue Light 
+                        Added 'scale-150' to make the light bigger 
+                     */}
+                     <div className="absolute inset-0 glow-mesh w-full h-full scale-150" />
                   </div>
                 </div>
              </div>
