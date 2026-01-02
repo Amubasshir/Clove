@@ -91,8 +91,8 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
           {/* --- Dynamic Background --- */}
           <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
              <div 
-                className={`absolute inset-0 grayscale transition-all duration-500 
-                ${isDarkMode ? 'opacity-40 mix-blend-overlay' : 'opacity-40 mix-blend-multiply'}`}
+                className={`absolute inset-0  transition-all duration-500 
+                ${isDarkMode ? 'opacity-70 mix-blend-overlay' : 'opacity-70 mix-blend-multiply'}`}
                 style={{
                   backgroundImage: `url('${data.hero.bgImage}')`,
                   backgroundSize: 'cover',
@@ -100,7 +100,7 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
                 }}
              />
              <div className={`absolute inset-0 bg-gradient-to-r transition-colors duration-500 
-               ${isDarkMode ? 'from-[#0F1115] via-[#0F1115]/80' : 'from-white via-white/50'} to-transparent`} 
+               ${isDarkMode ? 'from-[#0F1115] via-[#0F1115]/50' : 'from-white via-white/20'} to-transparent`} 
              />
              {/* Static Background Blobs (No Animation) */}
              <div className={`absolute top-0 right-0 w-[800px] h-[800px] bg-[#4B9CFF] rounded-full mix-blend-screen filter blur-[150px] transition-opacity duration-500 ${isDarkMode ? 'opacity-10' : 'opacity-20'}`} />
