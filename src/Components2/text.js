@@ -65,10 +65,10 @@ const StatCard = ({ data, index, isDarkMode }) => {
         {data.icon && (
           <div 
             className={`mb-4 p-3 rounded-xl transition-all duration-300 shadow-inner group-hover:scale-110
-             `}
-            // style={{ color: isDarkMode ? (data.color || 'white') : (data.color || '#4B9CFF') }}
+              ${isDarkMode ? 'bg-white/5 text-white' : 'bg-blue-50'}`}
+            style={{ color: isDarkMode ? (data.color || 'white') : (data.color || '#4B9CFF') }}
           >
-           <img src={data.icon} alt="" className='h-18' />
+            {data.icon}
           </div>
         )}
 
@@ -124,7 +124,7 @@ const CloveoStats = ({
       prefix: "$", 
       suffix: "M+", 
       label: "Total Payouts", 
-      icon: "./mobile.png", 
+      icon: <DollarSign size={24} />, 
       highlightSuffix: true,
       color: "#F59E0B" 
     },
@@ -133,7 +133,7 @@ const CloveoStats = ({
       value: 30, 
       suffix: "+", 
       label: "Categories", 
-      icon: "./priority-list.png", 
+      icon: <Layers size={24} />, 
       color: "#8B5CF6" 
     },
   ];

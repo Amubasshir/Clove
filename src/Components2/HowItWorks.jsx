@@ -16,7 +16,7 @@ const STEPS = [
     id: "01",
     title: "Sign Up & Verify",
     desc: "Create your free Cloveo account in seconds.",
-    icon: UserPlus, // Component pass korchi
+    icon: "./add-user.png" ,// Component pass korchi
     color: "from-blue-400 to-blue-600",
     textColor: "text-blue-500"
   },
@@ -24,7 +24,7 @@ const STEPS = [
     id: "02",
     title: "Choose a Task",
     desc: "Pick from social, design, or gaming tasks.",
-    icon: MousePointer2,
+    icon: "./project-management.png",
     color: "from-teal-400 to-teal-600",
     textColor: "text-teal-500"
   },
@@ -32,7 +32,7 @@ const STEPS = [
     id: "03",
     title: "Complete & Submit",
     desc: "Follow instructions and submit your proof.",
-    icon: ClipboardCheck,
+    icon: "./task (1).png",
     color: "from-purple-400 to-purple-600",
     textColor: "text-purple-500"
   },
@@ -40,7 +40,7 @@ const STEPS = [
     id: "04",
     title: "Get Paid Instantly",
     desc: "Receive your earnings right after approval.",
-    icon: Wallet,
+    icon: "./get-paid.png",
     color: "from-orange-400 to-red-500",
     textColor: "text-orange-500"
   }
@@ -76,28 +76,37 @@ const HowItWorks = ({ isDarkMode }) => {
                   : 'bg-white border-slate-100 hover:border-blue-200 hover:shadow-xl'}
               `}>
                 
-                {/* --- ICON WRAPPER (CENTERED) --- */}
-                <div className="relative w-24 h-24 mb-8 flex items-center justify-center">
-                  {/* Background Glow */}
-                  <div className={`absolute inset-0 rounded-full bg-gradient-to-tr ${step.color} blur-2xl opacity-10 group-hover:opacity-40 transition-opacity duration-500`} />
-                  
-                  {/* Icon Circle */}
-                  <div className={`relative w-20 h-20 rounded-full flex items-center justify-center border-2 transition-all duration-300
-                    ${isDarkMode ? 'bg-slate-900/50 border-slate-800 group-hover:border-blue-500/50' : 'bg-slate-50 border-slate-100 group-hover:border-blue-100'}`}>
-                    
-                    {/* The Icon Fix: Rendered as a component with stroke color */}
-                    <step.icon 
-                      size={40} 
-                      className={`transition-transform duration-300 group-hover:scale-110 ${isDarkMode ? 'text-white' : step.textColor}`} 
-                    />
-                  </div>
+              
+               {/* --- ICON WRAPPER (CENTERED) --- */}
+<div className="relative w-24 h-24 mb-8 flex items-center justify-center">
+  {/* Background Glow */}
+  <div className={`absolute inset-0 rounded-full bg-gradient-to-tr ${step.color} blur-2xl opacity-10 group-hover:opacity-40 transition-opacity duration-500`} />
+  
+  {/* Icon Circle */}
+  <div className={`relative w-20 h-20 rounded-full flex items-center justify-center border-2 transition-all duration-300
+    ${isDarkMode ? 'bg-slate-900/50 border-slate-800 group-hover:border-blue-500/50' : 'bg-slate-50 border-slate-100 group-hover:border-blue-100'}`}>
+    
+    {typeof step.icon === 'string' ? (
+      <img 
+        src={step.icon} 
+        alt={step.title} 
+        className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110" 
+      />
+    ) : (
+      /* If you decide to pass a Lucide Component later */
+      <step.icon 
+        size={40} 
+        className={`transition-transform duration-300 group-hover:scale-110 ${isDarkMode ? 'text-white' : step.textColor}`} 
+      />
+    )}
+  </div>
 
-                  {/* Step Number Badge */}
-                  <div className={`absolute top-0 right-0 w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black border
-                    ${isDarkMode ? 'bg-slate-800 text-blue-400 border-slate-700' : 'bg-blue-600 text-white border-white'}`}>
-                    {step.id}
-                  </div>
-                </div>
+  {/* Step Number Badge */}
+  <div className={`absolute top-0 right-0 w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black border
+    ${isDarkMode ? 'bg-slate-800 text-blue-400 border-slate-700' : 'bg-blue-600 text-white border-white'}`}>
+    {step.id}
+  </div>
+</div>
 
                 {/* --- CONTENT --- */}
                 <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
