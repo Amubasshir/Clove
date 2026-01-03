@@ -125,7 +125,7 @@ const TurnTimeIntoIncome = ({ isDarkMode }) => {
               className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#4B9CFF]/10 border border-[#4B9CFF]/20 mb-6"
             >
               <Zap size={14} className="text-[#4B9CFF]" />
-              <span className="text-xs font-bold uppercase tracking-wider text-[#4B9CFF]">Monetize Your Time</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#4B9CFF]">Master Your Time.</span>
             </motion.div>
 
             {/* Headline */}
@@ -135,7 +135,7 @@ const TurnTimeIntoIncome = ({ isDarkMode }) => {
               viewport={{ once: true }}
               className={`text-4xl md:text-6xl lg:text-[4.5rem] leading-[1.1] font-extrabold mb-6 tracking-tight ${isDarkMode ? 'text-white' : 'text-slate-900'}`}
             >
-              Turn Free Time <br />
+               Build Your Income. <br />
               into <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4B9CFF] to-purple-500">Real Income.</span>
             </motion.h1>
 
@@ -147,8 +147,7 @@ const TurnTimeIntoIncome = ({ isDarkMode }) => {
               transition={{ delay: 0.2 }}
               className={`text-lg md:text-xl leading-relaxed mb-8 max-w-lg font-light ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}
             >
-              Cloveo transforms your spare moments into cash. Whether it's 5 minutes or 5 hours, 
-              complete simple digital tasks and get paid instantly to your preferred wallet.
+              Join a global network of 50,000+ earners on a platform that has delivered over $2,000,000 in total payouts. We’ve removed the friction, so you can focus on earning.
             </motion.p>
 
             {/* Modern Stats Grid */}

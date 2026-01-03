@@ -166,7 +166,7 @@ const CloveoStats = ({
             viewport={{ once: true }}
             className={`text-3xl md:text-5xl font-bold mb-4 transition-colors duration-500 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
           >
-            Platform <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Milestones</span>
+            Real <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Milestones</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -175,7 +175,7 @@ const CloveoStats = ({
             viewport={{ once: true }}
             className={`max-w-2xl mx-auto text-lg transition-colors duration-500 ${isDarkMode ? 'text-gray-500' : 'text-gray-600'}`}
           >
-            Join a rapidly growing ecosystem that pays for your time and skills.
+            From 30+ task categories to $2,000,000+ paid out, we’ve built an ecosystem where your time translates directly into income.
           </motion.p>
         </div>
 

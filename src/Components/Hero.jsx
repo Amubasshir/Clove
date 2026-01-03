@@ -180,17 +180,17 @@ const CloveoHero = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
               <div className="lg:col-span-7 flex flex-col items-start ">
                 <h3 className="text-white italic tracking-[0.2em] font-semibold text-xs md:text-[34px] uppercase mb-3 md:mb-4 ml-1 opacity-90">
-                  Earn More. Work Less.
+                THE FUTURE OF FREELANCING
                 </h3>
                 <h1 className="text-white leading-[1.0] lg:leading-[0.95] tracking-tight space-y-5">
-                  <span className="block text-4xl sm:text-6xl lg:text-[74px] font-medium">Earn Real Money</span>
-                  <span className="block text-4xl sm:text-6xl lg:text-[74px] font-medium -mt-1 sm:-mt-2 lg:-mt-4">Completing Simple</span>
+                  <span className="block text-4xl sm:text-6xl lg:text-[74px] font-medium">Turn Simple Tasks Into</span>
+                  <span className="block text-4xl sm:text-6xl lg:text-[74px] font-medium -mt-1 sm:-mt-2 lg:-mt-4"> Real Income Today</span>
                   <span className="block text-[2.75rem] sm:text-[4.5rem] lg:text-[108px] font-extrabold -mt-1 sm:-mt-2 lg:-mt-4">Online Tasks</span>
                 </h1>
               </div>
               <div className="lg:col-span-5 flex flex-col pb-2">
                 <p className="text-gray-200 text-sm md:text-[16px] leading-relaxed max-w-md lg:max-w-[440px] mb-8 font-light opacity-90">
-                  Join thousands of people earning by designing memes, posting on Reddit, or moderating tasks — all from one simple dashboard.
+                  Join 50,000+ people earning by designing memes, posting on Reddit, or moderating tasks—with a 98% task approval rate.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 w-full">
                   <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-8 py-3.5 md:px-9 md:py-4 rounded-full font-bold text-sm md:text-[15px] transition shadow-lg text-center w-full sm:w-auto min-w-[180px] cursor-pointer">Start Earning Now</button>

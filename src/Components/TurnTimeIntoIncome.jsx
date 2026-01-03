@@ -67,11 +67,11 @@ const TurnTimeIntoIncome = () => {
               // Responsive Text Sizes
               className="text-4xl sm:text-5xl lg:text-[4rem] leading-[1.1] font-extrabold text-black tracking-tight mb-4 md:mb-6"
             >
-              Turn Your Free Time <br className="hidden md:block" />
+              Start Earning with Confidence. 
               into 
               {/* Blue Highlighted Text */}
               <span className="relative inline-block ml-2 md:ml-3 px-2">
-                 <span className="absolute inset-0 bg-blue-50 rounded-lg transform -skew-x-3 h-[90%] top-[10%] w-full"></span>
+                 <span className="absolute inset-0 bg-blue-50 rounded-lg transform -skew-x-2 h-[90%] top-[10%] w-full"></span>
                  <span className="relative text-[#4B9CFF]">Real Income</span>
               </span>
             </motion.h1>
@@ -82,9 +82,7 @@ const TurnTimeIntoIncome = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-gray-500 text-base md:text-lg leading-[1.7] mb-8 max-w-md lg:max-w-lg font-light"
             >
-              Cloveo lets you earn money by completing simple online tasks anytime, 
-              anywhere. From creating posts to moderating content, every action 
-              counts – and every task pays.
+              Experience a 98% task approval rate and instant rewards. Stop waiting for approvals and start turning your time into real income today.
             </motion.p>
 
             <motion.button 

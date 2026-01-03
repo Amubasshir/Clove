@@ -23,11 +23,11 @@ const CloveoFooter = ({ isDarkMode }) => {
           {/* Left Side: Text Content */}
           <div className="w-full md:w-[50%] p-8 md:p-16 flex flex-col items-center md:items-start text-center md:text-left z-40 relative">
             <h2 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] mb-4 tracking-tight">
-              Ready To Start <br />
-              Earning?
+              Start Earning <br /> with Confidence.
+              
             </h2>
             <p className={`${isDarkMode ? 'text-slate-400' : 'text-blue-50'} text-base md:text-[17px] mb-8 font-light`}>
-              Join Cloveo today and complete your first task in minutes.
+              Experience a 98% task approval rate and instant rewards. Stop waiting for approvals and start turning your time into real income today.
             </p>
             <button className={`
               px-9 py-4 rounded-full font-bold text-base shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer

@@ -8,10 +8,10 @@ const defaultHeroData = {
   hero: {
     badge: "Live Tasks Available Now",
     headlinePrefix: "Turn",
-    headlineItalic: "Pixels",
+    headlineItalic: "Your Time",
     headlineMiddle: "Into",
-    headlineGradient: "Paychecks.",
-    description: "The premium ecosystem for micro-tasks. Join elite freelancers earning crypto by validating AI, designing memes, and moderating content.",
+    headlineGradient: "Real Payouts.",
+    description: "Cloveo makes earning simple with a 98% approval rate on tasks. No gimmicks, just real opportunities to boost your income daily.",
     ctaPrimary: "Start Earning",
     ctaSecondary: "12k+ Users",
     ctaSecondarySub: "Online now",
@@ -131,7 +131,7 @@ const CloveoHero = ({ data = defaultHeroData, isDarkMode, toggleTheme }) => {
                         
                         {/* Categories Dropdown */}
                         <div className="relative group h-full flex items-center">
-                          <button className={`flex items-center gap-1 transition-colors duration-300 py-2 ${isDarkMode ? 'text-gray-300 group-hover:text-white' : 'text-gray-600 group-hover:text-black'}`}>
+                          <button className={`flex items-center hover:underline decoration-2 underline-offset-4 gap-1 transition-colors duration-300 py-2 ${isDarkMode ? 'text-gray-300 group-hover:text-white' : 'text-gray-600 group-hover:text-black '}`}>
                             Categories <ChevronDown size={14} className="mt-[1px] group-hover:rotate-180 transition-transform" />
                           </button>
                           <div className="absolute top-[100%] left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">

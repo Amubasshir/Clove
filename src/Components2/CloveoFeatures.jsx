@@ -1,35 +1,35 @@
 "use client"
 import React, { useRef, useState } from 'react';
-import { Timer, Globe, BadgeDollarSign, ArrowRight, Zap, Layers, Sparkles } from 'lucide-react';
+import { Timer, Globe, BadgeDollarSign, ArrowRight, Zap, Layers, Sparkles, CheckCircle, LayoutGrid } from 'lucide-react';
 import { motion, useInView, useMotionTemplate, useMotionValue } from 'framer-motion';
 
 // --- 1. Default Data ---
 const defaultFeaturesData = {
   header: {
     tag: "Why Cloveo?",
-    title: "Earn without limits.",
-    description: "We've removed the friction from online earning. No complex approvals, no delayed payments. Just pure, transparent tasks.",
-    cta: "Start Your Journey"
+    title: "Turn Your Spare Time Into Real Wealth",
+    description: "Join 50,000+ active earners on a platform that has already paid out over $2M. With a 98% task approval rate, we've removed the stress from online work.",
+    cta: "Start Earning Now"
   },
   features: [
     {
       id: 1,
-      title: "Instant Velocity",
-      desc: "Tasks complete in under 2 minutes. Get in, get paid, get out.",
-      icon: <Timer className="w-6 h-6" />,
+      title: "98% Success Rate",
+      desc: "Work with confidence. Our industry-leading approval rate ensures your time almost always turns into a paycheck.",
+      icon: <CheckCircle className="w-6 h-6" />,
       colSpan: 1
     },
     {
       id: 2,
-      title: "Global Grid",
-      desc: "Access opportunities from 180+ countries instantly.",
-      icon: <Globe className="w-6 h-6" />,
+      title: "30+ Task Categories",
+      desc: "From designing memes to professional moderation, choose the work that fits your unique skills.",
+      icon: <LayoutGrid className="w-6 h-6" />,
       colSpan: 1
     },
     {
       id: 3,
-      title: "Crystal Clear Payouts",
-      desc: "See the exact dollar amount before you click start. No hidden fees, no guessing games.",
+      title: "$2,000,000+ Total Payouts",
+      desc: "Join a proven ecosystem that delivers. We provide transparent rewards and instant payments with zero hidden fees.",
       icon: <BadgeDollarSign className="w-6 h-6" />,
       colSpan: 2
     }

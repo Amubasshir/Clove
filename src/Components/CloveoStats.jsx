@@ -4,7 +4,6 @@ import { useInView, useMotionValue, useSpring } from 'framer-motion';
 
 /**
  * 1. ANIMATED COUNTER LOGIC
- * Handles the smooth counting from 0 to the target value.
  */
 const Counter = ({ value, duration = 2.5 }) => {
   const ref = useRef(null);
@@ -25,7 +24,6 @@ const Counter = ({ value, duration = 2.5 }) => {
   useEffect(() => {
     return springValue.on("change", (latest) => {
       if (ref.current) {
-        // Rounds numbers (e.g., 1.5 -> 2)
         ref.current.textContent = Math.round(latest).toLocaleString();
       }
     });
@@ -44,15 +42,26 @@ const StatItem = ({
   highlightColor, 
   dividerColor 
 }) => {
-  // Determine if this specific item should be highlighted (bold/black)
   const textColor = data.highlight ? highlightColor : normalColor;
-  const fontWeight = data.highlight ? 'font-bold' : 'font-bold'; // Can adjust weight difference if needed
+  const fontWeight = 'font-bold'; 
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center group">
       
       {/* Content */}
       <div className="flex flex-col items-center text-center px-6 md:px-10 py-6 md:py-0">
+        
+        {/* ADDED: Image Icon Logic */}
+        {data.imgIcon && (
+          <div className="mb-4">
+            <img 
+              src={data.imgIcon} 
+              alt={data.label} 
+              className="w-12 h-12 md:w-16 md:h-16 object-contain"
+            />
+          </div>
+        )}
+
         <div 
           className={`text-5xl md:text-6xl lg:text-[5rem] tracking-tight mb-3 flex items-baseline transition-colors duration-300 ${fontWeight}`}
           style={{ color: textColor }}
@@ -67,7 +76,7 @@ const StatItem = ({
         </p>
       </div>
 
-      {/* Slanted Divider (Hidden on Mobile, Hidden on Last Item) */}
+      {/* Slanted Divider */}
       {!isLast && (
         <div 
           className="hidden md:block h-20 w-[1.5px] rotate-[15deg] mx-2 lg:mx-4 origin-center"
@@ -90,12 +99,12 @@ const CloveoStats = ({
   className = "" 
 }) => {
   
-  // Default Data if none provided (Matches your image)
+  // Updated Default Data with imgIcon paths
   const defaultStats = [
-    { id: 1, value: 98, suffix: "%", label: "Task Approval Rate", highlight: false },
-    { id: 2, value: 50, suffix: "K+", label: "Active Earners", highlight: false },
-    { id: 3, value: 2, prefix: "$", suffix: "M+", label: "Total Payouts", highlight: true }, // Highlighted
-    { id: 4, value: 30, suffix: "+", label: "Task Categories", highlight: false },
+    { id: 1, value: 98, suffix: "%", label: "Task Approval Rate", highlight: false, imgIcon: "./interest-rate.png" },
+    { id: 2, value: 50, suffix: "K+", label: "Active Earners", highlight: false, imgIcon: "./finance.png" },
+    { id: 3, value: 2, prefix: "$", suffix: "M+", label: "Total Payouts", highlight: true, imgIcon: "./mobile.png" },
+    { id: 4, value: 30, suffix: "+", label: "Task Categories", highlight: false, imgIcon: "./priority-list.png" },
   ];
 
   const dataToRender = stats.length > 0 ? stats : defaultStats;

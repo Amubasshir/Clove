@@ -68,15 +68,11 @@ const CloveoFeatures = () => {
               Why
             </h2>
             <h1 className="text-5xl md:text-[4rem] leading-[1.1] font-bold text-gray-900 mb-8 tracking-tight">
-              Cloveo Just Works?
+              Can I really earn on my own schedule?
             </h1>
             
             <p className="text-gray-500 text-base md:text-lg leading-[1.8] mb-10 max-w-lg font-light">
-              Cloveo makes earning online simple and reliable. Whether you're 
-              completing small tasks, posting on social platforms, or moderating 
-              content, you get paid fairly and fast. With transparent rewards, real 
-              opportunities, and a user-friendly interface, Cloveo turns your time into 
-              real income – no gimmicks, no hassle.
+              Absolutely. Cloveo makes earning flexible and reliable so you can work whenever you want. With 30+ different ways to earn and a proven track record of $2M+ in total payouts, you have the freedom to turn your spare time into a steady stream of income.
             </p>
 
             <button className="bg-[#4B9CFF] hover:bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-base md:text-lg transition-all shadow-lg shadow-blue-200 hover:shadow-blue-300 transform hover:-translate-y-1 cursor-pointer">
